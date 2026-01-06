@@ -1,0 +1,342 @@
+@import "tailwindcss";
+/* Force rebuild */
+
+@layer base {
+  :root {
+    /* Deep Space & Aurora Theme */
+    --brand-primary: #FF2E63;
+    /* Electric Pink */
+    --brand-secondary: #08D9D6;
+    /* Cyan/Teal */
+    --brand-tertiary: #252A34;
+    /* Gunmetal */
+    --brand-accent: #EAEAEA;
+    /* Off White */
+
+    /* Backgrounds */
+    --bg-deep: #0f0c29;
+    --bg-surface: rgba(255, 255, 255, 0.08);
+    /* More subtle surface */
+
+    /* Functional Colors */
+    --success: #00E676;
+    --error: #FF1744;
+    --warning: #FFC400;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Manrope', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #0c0a1f;
+    /* Deeper indigo */
+    /* Refined Aurora Mesh Gradient */
+    background-image:
+      radial-gradient(at 0% 0%, rgba(255, 46, 99, 0.12) 0px, transparent 45%),
+      radial-gradient(at 100% 0%, rgba(8, 217, 214, 0.12) 0px, transparent 45%),
+      radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.08) 0px, transparent 60%),
+      radial-gradient(at 100% 100%, rgba(255, 46, 99, 0.1) 0px, transparent 40%),
+      radial-gradient(at 0% 100%, rgba(8, 217, 214, 0.1) 0px, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(255, 46, 99, 0.4);
+    color: #fff;
+  }
+}
+
+@layer components {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
+  }
+
+  body,
+  p,
+  span,
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    font-family: var(--font-body);
+  }
+
+  /* --- Premium Layout & Structure --- */
+  .page-shell {
+    @apply w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12;
+  }
+
+  /* --- Crystalline Surfaces --- */
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 20px 40px -4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+    border-radius: 32px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+    box-shadow:
+      0 8px 12px -2px rgba(0, 0, 0, 0.15),
+      0 25px 50px -12px rgba(0, 0, 0, 0.3),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px) scale(1.005);
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+  }
+
+  /* --- Typography --- */
+  .text-gradient {
+    background: linear-gradient(135deg, #FF2E63 0%, #FF6B6B 50%, #8B5CF6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-alt {
+    background: linear-gradient(135deg, #08D9D6 0%, #2DD4BF 50%, #3B82F6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .heading-xl {
+    @apply text-6xl md:text-8xl font-bold leading-[1.1] tracking-tighter;
+  }
+
+  .body-lg {
+    @apply text-lg md:text-2xl text-white/70 leading-relaxed font-medium;
+  }
+
+  /* --- Premium Buttons --- */
+  .btn-primary {
+    @apply relative overflow-hidden inline-flex items-center justify-center gap-3 rounded-2xl px-10 py-5 font-bold text-white transition-all duration-500;
+    background: linear-gradient(135deg, #FF2E63 0%, #E11D48 100%);
+    box-shadow: 0 10px 30px -5px rgba(225, 29, 72, 0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(225, 29, 72, 0.6);
+    filter: brightness(1.15);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-3 rounded-2xl px-10 py-5 font-bold text-white/80 transition-all duration-400;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-4px);
+  }
+
+  .pill-button {
+    @apply relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-bold text-white transition-all duration-300 text-sm tracking-wide;
+    background: linear-gradient(135deg, #FF2E63 0%, #E11D48 100%);
+    box-shadow: 0 4px 20px rgba(255, 46, 99, 0.3);
+  }
+
+  .pill-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 46, 99, 0.5);
+  }
+
+  /* --- Premium Inputs --- */
+  .input-glass {
+    @apply w-full rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-4.5 text-white placeholder-white/30 backdrop-blur-md;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .input-glass:focus {
+    @apply outline-none bg-white/[0.08];
+    border-color: #FF2E63;
+    box-shadow: 0 0 0 4px rgba(255, 46, 99, 0.1);
+  }
+
+  /* --- Texture Overlay --- */
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3e%3cfilter id='noiseFilter'%3e%3cturbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3e%3c/filter%3e%3crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3e%3c/svg%3e");
+  }
+
+  /* --- Utilities --- */
+  .brand-gradient-bg {
+    background: linear-gradient(135deg, #FF2E63 0%, #08D9D6 100%);
+  }
+}
+
+/* --- Animations --- */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 46, 99, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 46, 99, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 46, 99, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Custom Scrollbar for Chat & Immersive Containers */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  transition: all 0.4s ease;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Profile Form Overrides */
+.profile-form label {
+  @apply text-sm font-medium text-white/70 block mb-2;
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  @apply w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder-white/40;
+  transition: all 0.2s ease;
+}
+
+.profile-form input:focus,
+.profile-form select:focus,
+.profile-form textarea:focus {
+  @apply outline-none bg-white/10;
+  border-color: rgba(8, 217, 214, 0.5);
+  /* brand-secondary/50 */
+  box-shadow: 0 0 0 4px rgba(8, 217, 214, 0.1);
+}
+
+.profile-form select option {
+  /* Match dark theme */
+  color: white;
+}
+
+/* --- Autofill Fixes --- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.05) inset !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: white;
+}
+
+/* Ensure select contrast */
+select {
+  color: white;
+  background-color: transparent;
+}
+
+select option {
+  background-color: #0f0c29;
+  color: white;
+}
